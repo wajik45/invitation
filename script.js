@@ -1,7 +1,6 @@
 // Variable
 const container = document.querySelector('.container'),
 layer = document.querySelector('.layer'),
-bgVideo = document.querySelector('.pidio'),
     // Kotak Awal
 kotakAwal = document.querySelector('.kotak-awal'),
         // txt
@@ -130,23 +129,26 @@ window.addEventListener('load', _ => {
     
                     setTimeout( _ => {
                         mKotakLocation();
-                    }, 500);
-                    closeMap.onclick = _ => {
-                        mKotakUndangan();
-                        mKotakLocation();
-                    }
+                        closeMap.onclick = _ => {
+                            mKotakUndangan();
+                            mKotakLocation();
+                        }
+                    }, 700);
                 }
                 tombolPhoto.onclick = _ => {
                     mKotakUndangan();
-                    mKotakPhoto();
-                    closePhoto.onclick = _ => {
-                        mKotakUndangan();
+
+                    setTimeout( _ => {
                         mKotakPhoto();
-                    }
+                        closePhoto.onclick = _ => {
+                            mKotakUndangan();
+                            mKotakPhoto();
+                        }
+                    }, 700);
                 }
             }
         }, 1000);
-    }, 2000);
+    }, 1000);
 });
 
 // gallery
