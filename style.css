@@ -16,6 +16,8 @@
     position: relative;
     color: #fff;
     display: flex;
+    opacity: 0;
+    transition: 1s;
 }
 video {
     min-width: 100%;

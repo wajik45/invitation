@@ -1,6 +1,7 @@
 // Variable
 const container = document.querySelector('.container'),
 layer = document.querySelector('.layer'),
+bgVideo = document.querySelector('.pidio'),
     // Kotak Awal
 kotakAwal = document.querySelector('.kotak-awal'),
         // txt
@@ -110,38 +111,42 @@ function mKotakPhoto() {
 
 window.addEventListener('load', _ => {
     setTimeout( _ => {
-        mKotakAwal();
+        container.style.opacity = '1';
 
-        tombolBuka.onclick = _ => {
-            gasAudio();
+        setTimeout( _ => {
             mKotakAwal();
-            mKotakUndangan();
-
-            tombolHome.onclick = _ => {
-                mKotakUndangan();
+    
+            tombolBuka.onclick = _ => {
+                gasAudio();
                 mKotakAwal();
-            }
-            tombolLocation.onclick = _ => {
                 mKotakUndangan();
-
-                setTimeout( _ => {
-                    mKotakLocation();
-                }, 500);
-                closeMap.onclick = _ => {
+    
+                tombolHome.onclick = _ => {
                     mKotakUndangan();
-                    mKotakLocation();
+                    mKotakAwal();
                 }
-            }
-            tombolPhoto.onclick = _ => {
-                mKotakUndangan();
-                mKotakPhoto();
-                closePhoto.onclick = _ => {
+                tombolLocation.onclick = _ => {
+                    mKotakUndangan();
+    
+                    setTimeout( _ => {
+                        mKotakLocation();
+                    }, 500);
+                    closeMap.onclick = _ => {
+                        mKotakUndangan();
+                        mKotakLocation();
+                    }
+                }
+                tombolPhoto.onclick = _ => {
                     mKotakUndangan();
                     mKotakPhoto();
+                    closePhoto.onclick = _ => {
+                        mKotakUndangan();
+                        mKotakPhoto();
+                    }
                 }
             }
-        }
-    }, 1000);
+        }, 1000);
+    }, 2000);
 });
 
 // gallery
