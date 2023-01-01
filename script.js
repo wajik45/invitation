@@ -21,13 +21,17 @@ tombolBuka = document.querySelector('.tombol-buka'),
 kotakUndangan = document.querySelector('.kotak-undangan'),
 tombolHome = document.querySelector('.tombol-home'),
 tombolLocation = document.querySelector('.tombol-location'),
-tombolPhoto = document.querySelector('.tombol-photo');
+tombolPhoto = document.querySelector('.tombol-photo'),
+tombolUcapan = document.querySelector('.tombol-ucapan'),
     // Kotak Tiga
 kotakLocation = document.querySelector('.kotak-location'),
 closeMap = document.querySelector('.close-map'),
     // Kotak Empat
 kotakPhoto = document.querySelector('.kotak-photo'),
-closePhoto = document.querySelector('.close-photo');
+closePhoto = document.querySelector('.close-photo'),
+    // Kotak Lima
+kotakUcapan = document.querySelector('.kotak-ucapan');
+closeUcapan = document.querySelector('.close-ucapan');
 
 
 // Array
@@ -108,6 +112,14 @@ function mKotakPhoto() {
     layer.classList.toggle('rgba-bg-item-kr');
 }
 
+function mKotakUcapan() {
+    kotakUcapan.classList.toggle('index-0');
+    kotakUcapan.classList.toggle('opasiti-satu');
+    kotakUcapan.classList.toggle('tr-skala-satu');
+
+    layer.classList.toggle('rgba-bg-item-kr');
+}
+
 window.addEventListener('load', _ => {
     setTimeout( _ => {
         container.style.opacity = '1';
@@ -146,6 +158,17 @@ window.addEventListener('load', _ => {
                         }
                     }, 700);
                 }
+                tombolUcapan.onclick = _ => {
+                    mKotakUndangan();
+
+                    setTimeout( _ => {
+                        mKotakUcapan();
+                        closeUcapan.onclick = _ => {
+                            mKotakUndangan();
+                            mKotakUcapan();
+                        }
+                    }, 700);
+                }
             }
         }, 1000);
     }, 1000);
@@ -172,3 +195,29 @@ container.addEventListener('click', (e) => {
 		e.target.classList.add('aktip');
     }
 });
+
+// form
+const inputNama = document.querySelector('#nama');
+const hadir = document.querySelector('#hadir');
+const tidakHadir = document.querySelector('#tidak-hadir');
+const btn = document.querySelector('.btn');
+const scriptURL = 'https://script.google.com/macros/s/AKfycbw38WXmGC7xpyM8Ybomy_42-pcyo_n5kW1gIvjmdsuQmhCYTeLnpH7BVIxUlv8V2GOhhA/exec'
+const form = document.forms['kirim-ke-google-sheet']
+        
+form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    if (inputNama.value.length < 1) {
+        alert('masukkan nama');
+    }
+    else {
+        btn.innerHTML = 'mengirim';
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                btn.innerHTML = 'kirim';
+                alert('Terimakasih! Pesan anda sudah kami terima.');
+                form.reset();
+            })
+            .catch(error => console.error('Error!', error.message))
+    }  
+})

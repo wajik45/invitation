@@ -82,6 +82,27 @@
                 </div>
                 <p class="close-photo">Close</p>
             </div>
+            <div class="kotak-ucapan">
+                <p class="close-ucapan">Close</p>
+                <div class="kata-ucapan">
+                    <h1 class="h-doa">Kirim doa dan Ucapan</h1>
+                    <p>Tuliskan sesuatu ucapan berupa harapan ataupun doa untuk kedua mempelai.</p>
+                </div>
+                <form name="kirim-ke-google-sheet">
+                    <input id="nama" name="nama" type="text" placeholder="Tuliskan nama">
+                    <textarea id="ucapan" name="ucapan" cols="30" rows="10" placeholder="Tuliskan ucapan atau doa untuk kedua mempelai"></textarea>
+                    <p>Apakah anda akan hadir memenuhi undangan saya?</p>
+                    <div class="radio-satu">                      
+                        <input id="hadir" value="hadir" name="kehadiran" type="radio">
+                        <label for="hadir">Hadir</label>
+                    </div>
+                    <div class="radio-dua">
+                        <input id="tidak-hadir" value="tidak-hadir" name="kehadiran" type="radio">
+                        <label for="tidak-hadir">Tidak Hadir</label>
+                    </div>
+                    <button class="btn" type="submit">Kirim</button>
+                </form>
+            </div>
         </div>
     </div>
     
