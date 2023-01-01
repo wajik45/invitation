@@ -197,12 +197,12 @@ container.addEventListener('click', (e) => {
 });
 
 // form
-const inputNama = document.querySelector('#nama');
-const hadir = document.querySelector('#hadir');
-const tidakHadir = document.querySelector('#tidak-hadir');
-const btn = document.querySelector('.btn');
-const scriptURL = 'https://script.google.com/macros/s/AKfycbw38WXmGC7xpyM8Ybomy_42-pcyo_n5kW1gIvjmdsuQmhCYTeLnpH7BVIxUlv8V2GOhhA/exec'
-const form = document.forms['kirim-ke-google-sheet']
+const inputNama = document.querySelector('#nama'),
+hadir = document.querySelector('#hadir'),
+tidakHadir = document.querySelector('#tidak-hadir'),
+btn = document.querySelector('.btn'),
+scriptURL = 'https://script.google.com/macros/s/AKfycbw38WXmGC7xpyM8Ybomy_42-pcyo_n5kW1gIvjmdsuQmhCYTeLnpH7BVIxUlv8V2GOhhA/exec',
+form = document.forms['kirim-ke-google-sheet'];
         
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -218,6 +218,6 @@ form.addEventListener('submit', e => {
                 alert('Terimakasih! Pesan anda sudah kami terima.');
                 form.reset();
             })
-            .catch(error => console.error('Error!', error.message))
+            .catch(error => console.error('Error!', error.message));
     }  
-})
+});
