@@ -31,7 +31,8 @@ kotakPhoto = document.querySelector('.kotak-photo'),
 closePhoto = document.querySelector('.close-photo'),
     // Kotak Lima
 kotakUcapan = document.querySelector('.kotak-ucapan');
-closeUcapan = document.querySelector('.close-ucapan');
+closeUcapan = document.querySelector('.close-ucapan'),
+kotakAlert = document.querySelector('.kotak-alert');
 
 
 // Array
@@ -160,10 +161,12 @@ window.addEventListener('load', _ => {
                 }
                 tombolUcapan.onclick = _ => {
                     mKotakUndangan();
-                    closeUcapan.classList.toggle('opasiti-satu');
 
                     setTimeout( _ => {
                         mKotakUcapan();
+                        setTimeout( _ => {
+                          closeUcapan.classList.toggle('opasiti-satu');
+                        }, 1000);
                         closeUcapan.onclick = _ => {
                             mKotakUndangan();
                             mKotakUcapan();
@@ -211,14 +214,20 @@ form.addEventListener('submit', e => {
     e.preventDefault();
 
     if (inputNama.value.length < 3 || ucapan.value.length < 3) {
-        alert('lengkapi form');
-    }
-    else {
+        kotakAlert.style.backgroundColor = '#e3c3c3';
+        kotakAlert.style.color = '#800f0f';
+        kotakAlert.innerHTML = 'Masukkan minimal 3 karakter.';
+        kotakAlert.style.display = 'flex';
+    } else {
         btn.innerHTML = 'mengirim';
+        kotakAlert.style.display = 'none';
         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
             .then(response => {
                 btn.innerHTML = 'kirim';
-                alert('Terimakasih! Pesan anda sudah kami terima.');
+                kotakAlert.style.backgroundColor = '#b4d9c2';
+                kotakAlert.style.color = '#095c29';
+                kotakAlert.innerHTML = 'Terima kasih, pesan anda sudah kami terima.';
+                kotakAlert.style.display = 'flex';
                 form.reset();
             })
             .catch(error => console.error('Error!', error.message));

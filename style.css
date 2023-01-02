@@ -17,7 +17,7 @@
     color: #fff;
     display: flex;
     opacity: 0;
-    transition: 1.5s;
+    transition: 1.5s opacity;
 }
 video {
     min-width: 100%;
@@ -67,8 +67,6 @@ video {
     min-height: 400px;
     font-family: 'Charm', cursive;
     background-color: rgba(0, 0, 0, 0);
-    /* backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px); */
     padding: 30px;
     border-radius: 20% 0 20% 0;
     display: flex;
@@ -137,7 +135,7 @@ video {
     position: absolute;
     bottom: 0;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     padding: 10px 0;
 }
 .kotak {
@@ -183,7 +181,7 @@ iframe {
 /* Kotak Empat */
 .kotak-photo {
     height: calc(100vh - 10px);
-    width: calc(100vh / 1.777777777777 - 10px);
+    max-width: 400px;
     display: flex;
     align-items: center;
     position: absolute;
@@ -192,7 +190,7 @@ iframe {
     transition: 1s;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     font-family:'Times New Roman', Times, serif;
 }
 .photo {
@@ -201,7 +199,7 @@ iframe {
 .photo img {
     width: 100%;
     border: 4px solid #fff;
-    border-radius: 0 5px 0 0;
+    border-radius: 20px;
     box-sizing: border-box;
 }
 .thumbs {
@@ -209,9 +207,10 @@ iframe {
     height: auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     background-color: #fff;
+    border-radius: 10px;
 }
 .alb {
     width: 30%;
@@ -227,14 +226,13 @@ iframe {
     cursor: pointer;
     background-color: #fff;
     padding: 5px 10px;
-    border-radius: 5px;
+    border-radius: 50px;
     color: #000;
-    margin-bottom: 162%;
+    margin-bottom: 160%;
 }
 /* Kotak Ucapan */
 .kotak-ucapan {
     height: calc(100vh - 10px);
-    width: calc(100vh / 1.777777777777 - 10px);
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -244,18 +242,19 @@ iframe {
     transform: scale(0) translateX(1000px);
     opacity: 0;
     z-index: -99;
-    transition: 1s transform opacity;
+    transition: 1s transform, opacity;
 }
 .kotak-ucapan form {
-    width: 90%;
-    height: 50%;
+    max-width: 90%;
+    min-height: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
     background-color: #fff;
     padding: 10px;
     border-radius: 10px;
     color: rgb(15, 14, 16);
+    position: relative;
 }
 .kata-ucapan {
     max-width: 90%;
@@ -273,17 +272,19 @@ iframe {
 #nama {
     width: 100%;
     height: 30px;
-    border-radius: 5px;
+    border-radius: 50px;
     border: 1px solid #777;
+    padding: 5px;
 }
 #ucapan {
-    border-radius: 5px;
+    border-radius: 10px;
     border: 1px solid #777;
+    padding: 5px;
 }
 .btn {
     width: 100%;
     height: 30px;
-    border-radius: 5px;
+    border-radius: 50px;
     background-color: #fff;
     cursor: pointer;
     border: 1px solid #777;
@@ -302,13 +303,22 @@ iframe {
     right: 0;
     top: 0;
     cursor: pointer;
-    background-color: rgba(255, 255, 255, .5);
+    background-color: #fff;
     padding: 5px 10px;
-    border-radius: 5px;
+    border-radius: 50px;
     color: #000;
     font-family:'Times New Roman', Times, serif;
     transition: 1s;
     opacity: 0;
+}
+.kotak-alert {
+  position: absolute;
+  padding: 10px;
+  align-self: center;
+  top: -40px;
+  text-align: center;
+  display: none;
+  font-size: .7rem;
 }
 /* JS */
 .xy-nol {
