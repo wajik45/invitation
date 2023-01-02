@@ -160,12 +160,14 @@ window.addEventListener('load', _ => {
                 }
                 tombolUcapan.onclick = _ => {
                     mKotakUndangan();
+                    closeUcapan.classList.toggle('opasiti-satu');
 
                     setTimeout( _ => {
                         mKotakUcapan();
                         closeUcapan.onclick = _ => {
                             mKotakUndangan();
                             mKotakUcapan();
+                            closeUcapan.classList.toggle('opasiti-satu');
                         }
                     }, 700);
                 }
@@ -198,6 +200,7 @@ container.addEventListener('click', (e) => {
 
 // form
 const inputNama = document.querySelector('#nama'),
+ucapan = document.querySelector('#ucapan');
 hadir = document.querySelector('#hadir'),
 tidakHadir = document.querySelector('#tidak-hadir'),
 btn = document.querySelector('.btn'),
@@ -207,8 +210,8 @@ form = document.forms['kirim-ke-google-sheet'];
 form.addEventListener('submit', e => {
     e.preventDefault();
 
-    if (inputNama.value.length < 1) {
-        alert('masukkan nama');
+    if (inputNama.value.length < 3 || ucapan.value.length < 3) {
+        alert('lengkapi form');
     }
     else {
         btn.innerHTML = 'mengirim';

@@ -244,7 +244,7 @@ iframe {
     transform: scale(0) translateX(1000px);
     opacity: 0;
     z-index: -99;
-    transition: 1s;
+    transition: 1s transform opacity;
 }
 .kotak-ucapan form {
     width: 90%;
@@ -274,9 +274,11 @@ iframe {
     width: 100%;
     height: 30px;
     border-radius: 5px;
+    border: 1px solid #777;
 }
 #ucapan {
     border-radius: 5px;
+    border: 1px solid #777;
 }
 .btn {
     width: 100%;
@@ -284,9 +286,13 @@ iframe {
     border-radius: 5px;
     background-color: #fff;
     cursor: pointer;
+    border: 1px solid #777;
 }
 .btn:hover {
-    background-color: #eaeaea;
+    background-color: #ddd;
+}
+.btn:target {
+  border: 2px solid #000;
 }
 .h-doa {
     font-family: 'Charm', cursive;
@@ -296,12 +302,13 @@ iframe {
     right: 0;
     top: 0;
     cursor: pointer;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, .5);
     padding: 5px 10px;
     border-radius: 5px;
     color: #000;
     font-family:'Times New Roman', Times, serif;
-    opacity: .5;
+    transition: 1s;
+    opacity: 0;
 }
 /* JS */
 .xy-nol {
