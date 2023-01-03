@@ -150,7 +150,7 @@ video {
 }
 /* Kotak Tiga */
 .kotak-location {
-    height: calc(100vh - 10px);
+    height: calc(100vh - 20px);
     width: calc(100vh / 1.777777777777 - 10px);
     position: absolute;
     transition: 1s;
@@ -180,8 +180,8 @@ iframe {
 }
 /* Kotak Empat */
 .kotak-photo {
-    height: calc(100vh - 10px);
-    max-width: 400px;
+    height: calc(100vh - 20px);
+    max-width: 390px;
     display: flex;
     align-items: center;
     position: absolute;
@@ -232,7 +232,7 @@ iframe {
 }
 /* Kotak Ucapan */
 .kotak-ucapan {
-    height: calc(100vh - 10px);
+    height: calc(100vh - 20px);
     display: flex;
     flex-direction: column;
     position: absolute;

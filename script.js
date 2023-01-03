@@ -218,12 +218,17 @@ form.addEventListener('submit', e => {
         kotakAlert.style.color = '#800f0f';
         kotakAlert.innerHTML = 'Masukkan minimal 3 karakter.';
         kotakAlert.style.display = 'flex';
+    } else if (btn.textContent == 'terkirim') {
+	kotakAlert.style.backgroundColor = '#b4d9c2';
+        kotakAlert.style.color = '#095c29';
+        kotakAlert.innerHTML = 'Anda sudah mengirimkan pesan';
+        kotakAlert.style.display = 'flex';
     } else {
         btn.innerHTML = 'mengirim';
         kotakAlert.style.display = 'none';
         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
             .then(response => {
-                btn.innerHTML = 'kirim';
+                btn.innerHTML = 'terkirim';
                 kotakAlert.style.backgroundColor = '#b4d9c2';
                 kotakAlert.style.color = '#095c29';
                 kotakAlert.innerHTML = 'Terima kasih, pesan anda sudah kami terima.';
