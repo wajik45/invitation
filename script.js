@@ -236,5 +236,5 @@ form.addEventListener('submit', e => {
                 form.reset();
             })
             .catch(error => console.error('Error!', error.message));
-    }  
+    }
 });
