@@ -22,6 +22,7 @@ kotakUndangan = document.querySelector('.kotak-undangan'),
 tombolHome = document.querySelector('.tombol-home'),
 tombolLocation = document.querySelector('.tombol-location'),
 tombolPhoto = document.querySelector('.tombol-photo'),
+tombolVideo = document.querySelector('.tombol-video'),
 tombolUcapan = document.querySelector('.tombol-ucapan'),
     // Kotak Tiga
 kotakLocation = document.querySelector('.kotak-location'),
@@ -30,6 +31,9 @@ closeMap = document.querySelector('.close-map'),
 kotakPhoto = document.querySelector('.kotak-photo'),
 closePhoto = document.querySelector('.close-photo'),
     // Kotak Lima
+kotakVideo = document.querySelector('.kotak-video'),
+closeVideo = document.querySelector('.close-video');
+    // Kotak Enam
 kotakUcapan = document.querySelector('.kotak-ucapan');
 closeUcapan = document.querySelector('.close-ucapan'),
 kotakAlert = document.querySelector('.kotak-alert');
@@ -113,6 +117,13 @@ function mKotakPhoto() {
     layer.classList.toggle('rgba-bg-item-kr');
 }
 
+function mKotakVideo() {
+    kotakVideo.classList.toggle('flex');
+    kotakVideo.classList.toggle('index-0');
+
+    layer.classList.toggle('rgba-bg-item-kr');
+}
+
 function mKotakUcapan() {
     kotakUcapan.classList.toggle('index-0');
     kotakUcapan.classList.toggle('opasiti-satu');
@@ -156,6 +167,17 @@ window.addEventListener('load', _ => {
                         closePhoto.onclick = _ => {
                             mKotakUndangan();
                             mKotakPhoto();
+                        }
+                    }, 700);
+                }
+                tombolVideo.onclick = _ => {
+                    mKotakUndangan();
+    
+                    setTimeout( _ => {
+                        mKotakVideo();
+                        closeVideo.onclick = _ => {
+                            mKotakUndangan();
+                            mKotakVideo();
                         }
                     }, 700);
                 }

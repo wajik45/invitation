@@ -153,18 +153,17 @@ video {
     height: calc(100vh - 10px);
     width: calc(100vh / 1.777777777777 - 10px);
     position: absolute;
-    transition: 1s;
     z-index: -99;
-    display: none;
-    font-family:'Times New Roman', Times, serif;
     display: none;
     justify-content: flex-end;
     align-items: center;
+    justify-content: center;
+    font-family: 'Charm', cursive;
 }
-iframe {
+.kotak-location iframe {
     height: 50%;
     width: 100%;
-    border: 2px solid #eaeaea;
+    border: 2px solid #fff;
     border-radius: 10px 0 10px 10px;
     position: absolute;
 }
@@ -173,15 +172,20 @@ iframe {
     cursor: pointer;
     right: 0;
     color: #000;
-    background-color: #eaeaea;
+    background-color: #fff;
     padding: 5px 10px;
     border-radius: 5px 5px 0 0;
     margin-bottom: 100%;
+    font-family:'Times New Roman', Times, serif;
+}
+.judul-location {
+    position: absolute;
+    top: 30px;
 }
 /* Kotak Empat */
 .kotak-photo {
     height: calc(100vh - 10px);
-    max-width: 400px;
+    max-width: 380px;
     display: flex;
     align-items: center;
     position: absolute;
@@ -230,6 +234,31 @@ iframe {
     color: #000;
     margin-bottom: 160%;
 }
+/* Kotak Video */
+.kotak-video {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: -99;
+    display: none;
+}
+.kotak-video, iframe {
+    max-width: 600px;
+    max-height: 400px;
+    font-family: 'Charm', cursive;
+}
+.close-video {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 50px;
+    color: #000;
+    font-family:'Times New Roman', Times, serif;
+}
 /* Kotak Ucapan */
 .kotak-ucapan {
     height: calc(100vh - 10px);
@@ -246,7 +275,7 @@ iframe {
 }
 .kotak-ucapan form {
     max-width: 90%;
-    min-height: 50%;
+    /* min-height: 50%; */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -258,7 +287,7 @@ iframe {
 }
 .kata-ucapan {
     max-width: 90%;
-    min-height: 30%;
+    /* min-height: 30%; */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -275,11 +304,13 @@ iframe {
     border-radius: 50px;
     border: 1px solid #777;
     padding: 5px;
+    margin: 10px 0;
 }
 #ucapan {
     border-radius: 10px;
     border: 1px solid #777;
     padding: 5px;
+    margin: 10px 0;
 }
 .btn {
     width: 100%;
@@ -290,6 +321,7 @@ iframe {
     border: none;
     background-color: #d49217;
     color: #fff;
+    margin: 10px 0;
 }
 #hadir, #tidak-hadir {
     accent-color: #333;
@@ -302,8 +334,8 @@ iframe {
 }
 .close-ucapan {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 30px;
+    top: 30px;
     cursor: pointer;
     background-color: #fff;
     padding: 5px 10px;
