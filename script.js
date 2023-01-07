@@ -3,6 +3,7 @@ const container = document.querySelector('.container'),
 layer = document.querySelector('.layer'),
     // Kotak Awal
 kotakAwal = document.querySelector('.kotak-awal'),
+kotakWaktu = document.querySelector('.kotak-waktu'),
         // txt
 txtWedding = document.querySelector('.txt-wedding'),
 txtRyevoNadia = document.querySelector('.txt-ryevo-nadia'),
@@ -31,10 +32,7 @@ closeMap = document.querySelector('.close-map'),
 kotakPhoto = document.querySelector('.kotak-photo'),
 closePhoto = document.querySelector('.close-photo'),
     // Kotak Lima
-kotakVideo = document.querySelector('.kotak-video'),
-closeVideo = document.querySelector('.close-video');
-    // Kotak Enam
-kotakUcapan = document.querySelector('.kotak-ucapan');
+kotakUcapan = document.querySelector('.kotak-ucapan'),
 closeUcapan = document.querySelector('.close-ucapan'),
 kotakAlert = document.querySelector('.kotak-alert');
 
@@ -77,6 +75,7 @@ function gasAudio() {
 }
 
 function mKotakAwal() {
+    kotakWaktu.classList.toggle('flex');
     kotakAwal.classList.toggle('tr-skala-satu');
     kotakAwal.classList.toggle('rgba-bg-item-tr');
 
@@ -113,13 +112,6 @@ function mKotakLocation() {
 function mKotakPhoto() {
     kotakPhoto.classList.toggle('index-0');
     kotakPhoto.classList.toggle('opasiti-satu');
-
-    layer.classList.toggle('rgba-bg-item-kr');
-}
-
-function mKotakVideo() {
-    kotakVideo.classList.toggle('flex');
-    kotakVideo.classList.toggle('index-0');
 
     layer.classList.toggle('rgba-bg-item-kr');
 }
@@ -170,17 +162,6 @@ window.addEventListener('load', _ => {
                         }
                     }, 700);
                 }
-                tombolVideo.onclick = _ => {
-                    mKotakUndangan();
-    
-                    setTimeout( _ => {
-                        mKotakVideo();
-                        closeVideo.onclick = _ => {
-                            mKotakUndangan();
-                            mKotakVideo();
-                        }
-                    }, 700);
-                }
                 tombolUcapan.onclick = _ => {
                     mKotakUndangan();
 
@@ -204,7 +185,25 @@ window.addEventListener('load', _ => {
 // gallery
 const imgGede = document.querySelector('.img-gede');
 const imgThumbs = document.querySelectorAll('.alb');
+const panahKanan = document.querySelector('.thumbs .kanan');
+const panahKiri = document.querySelector('.thumbs .kiri');
+const thumbs = document.querySelector('.thumbs');
 
+thumbs.onscroll = _ => {
+    if (thumbs.scrollLeft > 10) {
+        panahKanan.style.opacity = '0';
+        panahKiri.style.opacity = '1'
+    } else {
+        panahKanan.style.opacity = '1';
+        panahKiri.style.opacity = '0'
+    } 
+}
+panahKanan.onclick = _ => {
+    thumbs.scrollLeft = '200';
+}
+panahKiri.onclick = _ => {
+    thumbs.scrollLeft = '0';
+}
 container.addEventListener('click', (e) => {
     if (e.target.className == 'alb') {
         imgGede.src = e.target.src;
@@ -261,3 +260,43 @@ form.addEventListener('submit', e => {
             .catch(error => console.error('Error!', error.message));
     }
 });
+
+// waktu 
+// Mengatur waktu akhir perhitungan mundur
+var countDownDate = new Date("Jan 21, 2023 18:30:00").getTime();
+
+// Memperbarui hitungan mundur setiap 1 detik
+var x = setInterval(function() {
+
+  // Untuk mendapatkan tanggal dan waktu hari ini
+  var now = new Date().getTime();
+    
+  // Temukan jarak antara sekarang dan tanggal hitung mundur
+  var distance = countDownDate - now;
+    
+  // Perhitungan waktu untuk hari, jam, menit dan detik
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Keluarkan hasil dalam elemen
+  const hari = document.querySelector('#hari');
+  const jam = document.querySelector('#jam');
+  const menit = document.querySelector('#menit');
+  const detik = document.querySelector('#detik');
+
+  hari.innerHTML = days;
+  jam.innerHTML = hours;
+  menit.innerHTML = minutes;
+  detik.innerHTML = seconds;
+    
+  // Jika hitungan mundur selesai, tulis beberapa teks 
+  if (distance < 1) {
+    clearInterval(x);
+    hari.innerHTML = 0;
+    jam.innerHTML = 0;
+    menit.innerHTML = 0;
+    detik.innerHTML = 0;
+  }
+}, 1000);
